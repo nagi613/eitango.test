@@ -39,8 +39,6 @@ playButton.addEventListener('click', () => {
     if (!TARGET_SENTENCE) return;
     if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(TARGET_SENTENCE[langSelect.value]);
-        // 言語設定
-        const voices = speechSynthesis.getVoices();
         switch(langSelect.value){
             case 'en': utterance.lang='en-US'; break;
             case 'zh': utterance.lang='zh-CN'; break;
