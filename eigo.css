@@ -1,66 +1,48 @@
 body {
-  background-color: #1a1a1a;
-  color: white;
-  font-family: "Noto Sans JP", sans-serif;
-  padding: 20px;
+    background-color: #222;
+    color: white;
+    font-family: "Noto Sans JP", sans-serif;
+    padding: 20px;
 }
 
 .container {
-  max-width: 800px;
-  margin: auto;
+    max-width: 800px;
+    margin: auto;
 }
 
-#targetSentence {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+.sentence-box {
+    background-color: #333;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
 }
 
-#translation {
-  font-size: 1.2em;
-  margin-bottom: 20px;
+.word-meaning {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.controls {
+    margin-bottom: 15px;
 }
 
 button, select {
-  font-size: 1em;
-  margin: 5px;
-  padding: 5px 10px;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #555;
+    color: white;
+    font-size: 14px;
 }
 
-.word {
-  display: inline-block;
-  margin-right: 5px;
-  padding: 2px 4px;
-  border-radius: 4px;
-  cursor: pointer;
+button:disabled {
+    background-color: #888;
+    cursor: not-allowed;
 }
 
-.correct {
-  background-color: green;
-}
-
-.incorrect {
-  background-color: red;
-}
-
-.tooltip {
-  position: relative;
-}
-
-.tooltip span {
-  visibility: hidden;
-  width: auto;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 2px 5px;
-  border-radius: 4px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
-.tooltip:hover span {
-  visibility: visible;
+.results p {
+    margin: 5px 0;
+    font-weight: bold;
 }
