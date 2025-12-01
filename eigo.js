@@ -66,17 +66,40 @@ function updateWordMeaning(){
 // 言語切替
 langSelect.addEventListener('change', loadNewSentence);
 
-// TTS
-playButton.addEventListener('click', ()=>{
-    if(!TARGET_SENTENCE) return;
-    if('speechSynthesis' in window){
-        const utterance = new SpeechSynthesisUtterance(TARGET_SENTENCE.en); // 読み上げは英語
-        utterance.lang='en-US';
+// --- TTS再生 ---
+playButton.addEventListener('click', () => {
+    if (!TARGET_SENTENCE) return;
+    if ('speechSynthesis' in window) {
+        let text = TARGET_SENTENCE[langSelect.value]; // 選択した言語の文
+        let utterance = new SpeechSynthesisUtterance(text);
+
+        // 言語コードを切り替え
+        switch(langSelect.value) {
+            case 'en':
+                utterance.lang = 'en-US';
+                break;
+            case 'zh':
+                utterance.lang = 'zh-CN';
+                break;
+            case 'kr':
+                utterance.lang = 'ko-KR';
+                break;
+            case 'ru':
+                utterance.lang = 'ru-RU';
+                break;
+            case 'tl':
+                utterance.lang = 'tl-PH'; // タガログ語
+                break;
+            default:
+                utterance.lang = 'en-US';
+        }
+
         window.speechSynthesis.speak(utterance);
-    }else{
+    } else {
         alert('お使いのブラウザは音声合成に対応していません。');
     }
 });
+
 
 // STT
 recordButton.addEventListener('click', ()=>{
