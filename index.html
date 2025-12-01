@@ -3,30 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>英単語テスト</title>
-<link rel="stylesheet" href="eigo.css">
+<title>🎤 多言語英単語テスト</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-    <h1>🎤 英文リスニング＆スピーキング練習</h1>　
+    <h1>英単語テスト（多言語対応）</h1>
 
-    <div class="sentence-box">
-        <p id="targetSentence">ここに英文が表示されます</p>
-        <p id="translation">ここに日本語訳が表示されます</p>
+    <div class="language-select">
+        <label for="lang">表示言語：</label>
+        <select id="lang">
+            <option value="jp">日本語</option>
+            <option value="ru">ロシア語</option>
+            <option value="zh">中国語</option>
+            <option value="kr">韓国語</option>
+        </select>
     </div>
 
-    <div class="button-group">
-        <button id="playButton">▶ 再生</button>
+    <div id="targetSentence" class="sentence">英文がここに表示されます</div>
+    <div id="translation" class="translation">意味がここに表示されます</div>
+
+    <div class="buttons">
+        <button id="changeButton">🔄 次の問題</button>
+        <button id="playButton">🔊 再生</button>
         <button id="recordButton">🎙️ 録音開始</button>
-        <button id="changeButton">🔄 問題チェンジ</button>
     </div>
 
-    <div class="result-box">
-        <p>認識結果: <span id="recognitionResult">---</span></p>
-        <p>スコア: <span id="scoreResult">0%</span></p>
+    <div class="results">
+        <div>認識結果: <span id="recognitionResult">---</span></div>
+        <div>スコア: <span id="scoreResult">0%</span></div>
     </div>
 </div>
 
-<script src="eigo.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
