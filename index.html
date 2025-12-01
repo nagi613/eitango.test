@@ -3,36 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>英語学習アプリ</title>
+<title>日常英会話テスト</title>
 <link rel="stylesheet" href="eigo.css">
 </head>
 <body>
-
-<div class="container">
-  <h1>英語学習アプリ</h1>
-
-  <div id="targetSentence">---</div>
-  <div id="translation">---</div>
-
-  <div>
-    <select id="lang">
-      <option value="jp">日本語</option>
-      <option value="ru">ロシア語</option>
-      <option value="zh">中国語</option>
-      <option value="kr">韓国語</option>
-    </select>
-  </div>
-
-  <div class="buttons">
-    <button id="playButton">▶ 再生</button>
-    <button id="recordButton">🎙️ 録音開始</button>
-    <button id="changeButton">次の文</button>
-  </div>
-
-  <div id="recognitionResult"></div>
-  <div id="scoreResult">0%</div>
-</div>
-
+    <div class="container">
+        <h1>日常英会話テスト</h1>
+        <div class="sentence-box">
+            <p id="targetSentence"></p>
+            <p id="translation"></p>
+        </div>
+        <div class="word-meaning" id="wordMeaning"></div>
+        <div class="controls">
+            <button id="playButton">🎤 再生</button>
+            <button id="recordButton">🎙️ 録音開始</button>
+            <button id="changeButton">🔄 問題変更</button>
+            <select id="lang">
+                <option value="en">英語</option>
+                <option value="zh">中国語</option>
+                <option value="kr">韓国語</option>
+                <option value="ru">ロシア語</option>
+                <option value="tl">タガログ語</option>
+            </select>
+        </div>
+        <div class="results">
+            <p>認識結果: <span id="recognitionResult">---</span></p>
+            <p>スコア: <span id="scoreResult">0%</span></p>
+        </div>
+    </div>
 <script src="eigo.js"></script>
 </body>
 </html>
