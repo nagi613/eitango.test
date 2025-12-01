@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日常英会話テスト</title>
-<link rel="stylesheet" href="eigo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常英会話テスト</title>
+    <link rel="stylesheet" href="eigo.css">
 </head>
 <body>
     <div class="container">
-        <h1>日常英会話テスト</h1>
-        <div class="sentence-box">
-            <p id="targetSentence"></p>
-            <p id="translation"></p>
-        </div>
-        <div class="word-meaning" id="wordMeaning"></div>
+        <h1>日常会話テスト</h1>
+        <div id="targetSentence" class="sentence">---</div>
+        <div id="translation" class="translation">---</div>
+        <div id="wordMeanings" class="words">---</div>
+
         <div class="controls">
             <button id="playButton">🎤 再生</button>
             <button id="recordButton">🎙️ 録音開始</button>
@@ -26,11 +25,14 @@
                 <option value="tl">タガログ語</option>
             </select>
         </div>
+
         <div class="results">
-            <p>認識結果: <span id="recognitionResult">---</span></p>
-            <p>スコア: <span id="scoreResult">0%</span></p>
+            <div>認識結果: <span id="recognitionResult">---</span></div>
+            <div>スコア: <span id="scoreResult">0%</span></div>
         </div>
     </div>
-<script src="eigo.js"></script>
+
+    <script src="eigobook.js"></script>
+    <script src="eigo.js"></script>
 </body>
 </html>
