@@ -1,3 +1,4 @@
+// サンプル文
 const SENTENCE_LIST = [
     {
         en:"I need to buy some milk and eggs.",
@@ -13,28 +14,12 @@ const SENTENCE_LIST = [
             ru:{Мне:"私", нужно:"必要", купить:"買う", молоко:"牛乳", яйца:"卵"},
             tl:{Kailangan:"私", bumili:"必要", gatas:"牛乳", itlog:"卵"}
         }
-    },
-    {
-        en:"She has been waiting for an hour.",
-        jp:"彼女は1時間待っています。",
-        zh:"她已经等了一个小时。",
-        kr:"그녀는 한 시간 동안 기다리고 있다.",
-        ru:"Она ждет уже час.",
-        tl:"Matagal na siyang naghihintay ng isang oras.",
-        words:{
-            en:{She:"彼女", has:"持っている", been:"〜している", waiting:"待っている", hour:"時間"},
-            zh:{她:"彼女", 已经:"〜している", 等:"待っている", 小时:"時間"},
-            kr:{그녀는:"彼女", 기다리다:"待つ", 시간:"時間"},
-            ru:{Она:"彼女", ждет:"待っている", час:"時間"},
-            tl:{siya:"彼女", naghihintay:"待っている", oras:"時間"}
-        }
     }
-    // ここに残り98文を同じ形式で追加
+    // 残り99文も同様に追加
 ];
 
-// DOM
 const targetSentenceElement = document.getElementById('targetSentence');
-const translationElement = document.getElementById('translation');
+const translationElement = document.getElementById('translation'); // 日本語訳
 const wordMeaningElement = document.getElementById('wordMeaning');
 const playButton = document.getElementById('playButton');
 const recordButton = document.getElementById('recordButton');
@@ -54,8 +39,9 @@ function normalizeText(text){
 function loadNewSentence(){
     const randomIndex = Math.floor(Math.random()*SENTENCE_LIST.length);
     TARGET_SENTENCE = SENTENCE_LIST[randomIndex];
-    targetSentenceElement.textContent = TARGET_SENTENCE.en;
-    updateTranslation();
+    const lang = langSelect.value;
+    targetSentenceElement.textContent = TARGET_SENTENCE[lang]; // 選択言語の文を表示
+    translationElement.textContent = TARGET_SENTENCE.jp; // 下に日本語訳
     updateWordMeaning();
     recognitionResultElement.textContent = '---';
     scoreResultElement.textContent = '0%';
@@ -63,15 +49,7 @@ function loadNewSentence(){
     recordButton.disabled = false;
 }
 
-// 翻訳
-function updateTranslation(){
-    if(!TARGET_SENTENCE) return;
-    const lang = langSelect.value;
-    translationElement.textContent = TARGET_SENTENCE[lang];
-    updateWordMeaning();
-}
-
-// 単語意味更新（左：選択言語、右：日本語）
+// 単語意味更新
 function updateWordMeaning(){
     if(!TARGET_SENTENCE) return;
     const lang = langSelect.value;
@@ -86,14 +64,14 @@ function updateWordMeaning(){
 }
 
 // 言語切替
-langSelect.addEventListener('change', updateTranslation);
+langSelect.addEventListener('change', loadNewSentence);
 
 // TTS
 playButton.addEventListener('click', ()=>{
     if(!TARGET_SENTENCE) return;
     if('speechSynthesis' in window){
-        const utterance = new SpeechSynthesisUtterance(TARGET_SENTENCE.en);
-        utterance.lang = 'en-US';
+        const utterance = new SpeechSynthesisUtterance(TARGET_SENTENCE.en); // 読み上げは英語
+        utterance.lang='en-US';
         window.speechSynthesis.speak(utterance);
     }else{
         alert('お使いのブラウザは音声合成に対応していません。');
@@ -144,5 +122,5 @@ recordButton.addEventListener('click', ()=>{
     recognition.start();
 });
 
-changeButton.addEventListener('click',loadNewSentence);
-window.onload=loadNewSentence;
+changeButton.addEventListener('click', loadNewSentence);
+window.onload = loadNewSentence;
