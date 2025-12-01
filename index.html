@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎤 Bit英単語テスト2</title>
+<link rel="stylesheet" href="eigo.css">
+</head>
+<body>
+    <a id="backBtn" href="https://nagi613.github.io/EchoSense/echosense.html">← 戻る</a>
+<div class="container">
+    <h1>🎤 Bit英単語テスト2</h1>
+
+    <p>以下の英文を聞いた後、「録音開始」ボタンを押して復唱してください。</p>
+
+    <h2>英文</h2>
+    <div class="correct-text" id="targetSentence">クリックして問題を変更してください...</div>
+
+    <!-- ボタン横並び -->
+    <div class="button-row">
+        <button id="changeButton">🔄 問題チェンジ</button>
+        <button id="playButton" disabled>🔊 英文再生</button>
+    </div>
+
+    <hr>
+
+    <h2>復唱結果</h2>
+    <button id="recordButton" disabled>🎙️ 録音開始</button>
+    <div class="result-box">
+        <p><strong>認識結果:</strong> <span id="recognitionResult">---</span></p>
+        <p><strong>スコア:</strong> <span id="scoreResult">0%</span></p>
+        <p>（認識された単語の一致度）</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
