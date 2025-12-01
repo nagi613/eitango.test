@@ -1,196 +1,65 @@
-:root {
-  --bg-dark: #0a0f24;
-  --bg-card: rgba(20, 30, 60, 0.9);
-  --accent: #00b4ff;
-  --accent-glow: 0 0 12px #00b4ff;
-  --text-main: #e6f0ff;
-  --text-sub: #a0b8ff;
-  --radius: 18px;
-  font-family: "Noto Sans JP", "Poppins", sans-serif;
-}　
-
 body {
-  margin: 0;
-  padding: 40px 20px;
-  background: radial-gradient(circle at top, #0b1635 0%, #000814 100%);
-  color: var(--text-main);
-  display: flex;
-  justify-content: center;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: "Noto Sans JP", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
 }
 
 .container {
-  background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0,180,255,0.3);
-  border-radius: var(--radius);
-  box-shadow: var(--accent-glow);
-  max-width: 700px;
-  width: 100%;
-  padding: 30px 40px;
-  box-sizing: border-box;
-  text-align: center;
+    max-width: 800px;
+    width: 100%;
 }
 
 h1 {
-  font-size: 2rem;
-  margin-bottom: 1em;
-  background: linear-gradient(90deg, #00b4ff, #60a3ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-p {
-  font-size: 1rem;
-  color: var(--text-sub);
-  line-height: 1.5;
-  margin-bottom: 1.2em;
+.sentence-box {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }
 
-.correct-text {
-  background: rgba(0,180,255,0.1);
-  border-left: 5px solid var(--accent);
-  padding: 14px 16px;
-  border-radius: var(--radius);
-  font-weight: bold;
-  margin-bottom: 15px;
-  text-align: left;
-  color: var(--text-main);
+#targetSentence {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
-/* ===== ボタン共通 ===== */
+#translation {
+    font-size: 1.2rem;
+    color: #c0c0c0;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
 button {
-  border: none;
-  border-radius: var(--radius);
-  padding: 14px 30px;
-  margin: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.15s, box-shadow 0.3s;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #555;
+    color: white;
+    transition: background-color 0.2s;
 }
 
-/* ===== 各ボタンのカラー ===== */
-#playButton {
-  background: linear-gradient(90deg, #0078ff, #00c3ff);
-  color: white;
-  box-shadow: 0 0 8px rgba(0,180,255,0.4);
-}
-#playButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 18px rgba(0,180,255,0.8);
-  background: linear-gradient(90deg, #00c3ff, #0078ff);
-}
-
-/* 再生中アニメーション */
-#playButton.active {
-  transform: translateX(5px) scale(1.05);
-  box-shadow: 0 0 20px rgba(0,180,255,0.8);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-#recordButton {
-  background: linear-gradient(90deg, #ff7a00, #ffc200);
-  color: white;
-  box-shadow: 0 0 8px rgba(255,180,0,0.4);
-}
-#recordButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 18px rgba(255,180,0,0.6);
-  background: linear-gradient(90deg, #ffc200, #ff7a00);
-}
-
-#changeButton {
-  background: linear-gradient(90deg, #006644, #004422);
-  color: white;
-  box-shadow: 0 0 8px #006644;
-}
-#changeButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 16px #00aa55;
-  background: linear-gradient(90deg, #005533, #007744);
-}
-
-/* 波紋エフェクト */
-button::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 300%;
-  height: 300%;
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  opacity: 0;
-  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
-  z-index: 0;
-}
-
-button:hover::before {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0.1;
+button:hover {
+    background-color: #777;
 }
 
 .result-box {
-  margin-top: 20px;
-  padding: 15px;
-  border: 1px solid rgba(0,180,255,0.3);
-  border-radius: var(--radius);
-  background: rgba(0,0,0,0.2);
-  text-align: left;
-}
-
-.result-box p {
-  margin: 8px 0;
-  color: var(--text-main);
-}
-
-#recognitionResult, #scoreResult {
-  font-weight: bold;
-  color: var(--accent);
-}
-
-/* ===== ボタン横並び ===== */
-.button-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 480px){
-    .button-row {
-        flex-direction: column;
-        gap: 8px;
-    }
-}
-
-@media (max-width: 768px){
-  body { padding: 20px 10px; }
-  .container { padding: 20px 15px; }
-  h1 { font-size: 1.5rem; }
-  button { width: 100%; padding: 12px; font-size: 0.95rem; }
-  .correct-text { font-size: 0.95rem; padding: 12px; }
-}
-
-/* 左上 戻るボタン */
-#backBtn {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background-color: #ffffff;
-    color: #3f51b5;
-    border: 2px solid #3f51b5;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s, color 0.2s;
-    z-index: 1000;
-}
-
-#backBtn:hover {
-    background-color: #3f51b5;
-    color: #ffffff;
+    background-color: #333;
+    padding: 15px;
+    border-radius: 12px;
 }
