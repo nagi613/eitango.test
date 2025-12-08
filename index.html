@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>日常会話テスト</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>日常会話テスト</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="eigo.css">
 </head>
 <body>
-<h1>日常会話テスト</h1>
+    <div class="container">
+        <h1>日常会話テスト</h1>
 
-<div id="sentenceBox">
-    <p id="targetSentence">---</p>
-    <p id="translation">---</p>
-    <p id="wordMeanings">---</p>
-</div>
+        <div id="sentenceBox">
+            <p id="targetSentence" class="sentence">---</p>
+            <p id="translation" class="translation">---</p>
+            <p id="wordMeanings" class="words">---</p>
+        </div>
 
-<div id="controls">
-    <button id="playButton">🎤 再生</button>
-    <button id="recordButton">🎙️ 録音開始</button>
-    <button id="changeButton">🔄 問題変更</button>
-</div>
+        <div id="controls" class="controls">
+            <button id="playButton">🎤 再生</button>
+            <button id="recordButton">🎙️ 録音開始</button>
+            <button id="changeButton">🔄 問題変更</button>
+        </div>
 
-<select id="lang">
-    <option value="en">英語</option>
-    <option value="zh">中国語</option>
-    <option value="kr">韓国語</option>
-    <option value="ru">ロシア語</option>
-    <option value="tl">タガログ語</option>
-</select>
+        <select id="lang">
+            <option value="en">英語</option>
+            <option value="zh">中国語</option>
+            <option value="kr">韓国語</option>
+            <option value="ru">ロシア語</option>
+            <option value="tl">タガログ語</option>
+        </select>
 
-<p>認識結果: <span id="recognitionResult">---</span></p>
-<p>スコア: <span id="scoreResult">0%</span></p>
+        <div class="results-section">
+            <p>認識結果: <span id="recognitionResult" class="results">---</span></p>
+            <p>スコア: <span id="scoreResult" class="results">0%</span></p>
+        </div>
+    </div>
 
-<script src="eigobook.js"></script>
-<script src="eigo.js"></script>
+    <script src="eigobook.js"></script>
+    <script src="eigo.js"></script>
 </body>
 </html>
