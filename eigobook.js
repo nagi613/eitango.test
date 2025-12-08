@@ -82,7 +82,7 @@ const SENTENCE_LIST = [
     ru:"Я не понимаю.",
     tl:"Hindi ko maintindihan.",
     words:{
-      en:{I:"私", don't:"〜ない", understand:"理解する"},
+      en:{I:"私", "don't":"〜ない", understand:"理解する"},
       zh:{我:"私", 不:"〜ない", 明白:"理解する"},
       kr:{이해:"理解", 못:"〜ない", 하겠어요:"します"},
       ru:{Я:"私", не:"〜ない", понимаю:"理解する"},
