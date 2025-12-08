@@ -190,5 +190,9 @@ function calculateScore(recognizedText) {
 langSelect.addEventListener('change', updateSentence);
 changeButton.addEventListener('click', loadNewSentence);
 
-// 初期表示
-window.onload = loadNewSentence;
+// --- イベントリスナーと初期表示 ---
+langSelect.addEventListener('change', updateSentence);
+changeButton.addEventListener('click', loadNewSentence);
+
+// 初期表示の直接呼び出し
+loadNewSentence();
