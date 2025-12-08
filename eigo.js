@@ -64,7 +64,6 @@ playButton.addEventListener('click', () => {
             case 'zh': utterance.lang='zh-CN'; break;
             case 'kr': utterance.lang='ko-KR'; break;
             case 'ru': utterance.lang='ru-RU'; break;
-            case 'tl': utterance.lang='fil-PH'; break; // Tagalog
             default: utterance.lang='en-US'; 
         }
         
@@ -87,7 +86,6 @@ function setRecognitionLang(lang) {
             case 'zh': recognition.lang = 'cmn-Hans-CN'; break; 
             case 'kr': recognition.lang = 'ko-KR'; break;
             case 'ru': recognition.lang = 'ru-RU'; break;
-            case 'tl': recognition.lang = 'fil-PH'; break; 
             default: recognition.lang = 'en-US';
         }
     }
